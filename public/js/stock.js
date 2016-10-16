@@ -59,7 +59,7 @@ function stockController($http) {
 
     function pieChart(){
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart());
       let mostPopular = [];
       mostPopular.push(stockCtrl.stockList[0]);
       mostPopular.push(stockCtrl.stockList[1]);
