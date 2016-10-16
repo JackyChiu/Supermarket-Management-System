@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="Supermarket-Management-System">
+  <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+  <div class="container">
+    <div class="row">
+          <h2 class="section-heading">Stock List</h2>
+			<table class="stocktable" ng-controller="StockController as stockCtrl">
+				<thead>
+					<tr>
+						<th>Product</th>
+						<th>ExpireDate</th>
+						<th>Quantity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control" ng-model="stockCtrl.stock.product"></td>
+						<td><input class="form-control" ng-model="stockCtrl.stock.expiryDate"></td>
+						<td><input class="form-control" ng-model="stockCtrl.stock.quantity"></td>
+						<td><button class="btn btn-primary" ng-click="stockCtrl.postStock()">Add Stock</button></td>
+					</tr>
+					<tr ng-repeat="stock in stockCtrl.stocklist">
+						<td>{{stock.product}}</td>
+						<td>{{stock.expiryDate}}</td>
+						<td>{{stock.quantity}}</td>
+						<td><button class="btn btn-danger" ng-click="stockCtrl.deleteStock(stock)">Remove</button></td>
+						<td><button class="btn btn-warning" ng-click="stockCtrl.putStock(stock)">Edit</button></td>
+					</tr>
+				</tbody>
+			</table>
+    </div>
+</div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/Supermarket-Management-System.js"></script>
+  <script src="js/stock.js"></script>
+</html>
