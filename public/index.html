@@ -22,13 +22,15 @@
 						<td><input class="form-control" ng-model="stockCtrl.stock.quantity"></td>
 						<td><button class="btn btn-primary" ng-click="stockCtrl.postStock()">Add Stock</button></td>
 					</tr>
-					<tr ng-repeat="stock in stockCtrl.stocklist">
-						<td>{{stock.product}}</td>
-						<td>{{stock.expiryDate}}</td>
-						<td>{{stock.quantity}}</td>
-						<td><button class="btn btn-danger" ng-click="stockCtrl.deleteStock(stock)">Remove</button></td>
-						<td><button class="btn btn-warning" ng-click="stockCtrl.putStock(stock)">Edit</button></td>
-					</tr>
+                </tbody>
+				<tbody ng-repeat="stock in stockCtrl.stockList">
+                    <tr>
+    					<td>{{stock.product}}</td>
+    					<td>{{stock.expiryDate}}</td>
+    					<td>{{stock.quantity}}</td>
+    					<td><button class="btn btn-danger" ng-click="stockCtrl.deleteStock(stock)">Remove</button></td>
+    					<td><button class="btn btn-warning" ng-click="stockCtrl.putStock(stock)">Edit</button></td>
+                    </tr>
 				</tbody>
 			</table>
     </div>

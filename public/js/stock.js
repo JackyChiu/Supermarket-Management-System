@@ -22,14 +22,17 @@ function stockController($http) {
         console.log(stockCrtl.stock);
         $http.post('/stock', stockCrtl.stock).then((res) => {
             console.log(res);
+            getStock();
         }).catch((error) =>{
             console.log(error);
         });
     }
 
     stockCrtl.deleteStock = (stock) => {
+        
         $http.delete('/stock/' + stock._id).then((res) => {
             console.log(res);
+            getStock();
         }).catch((error) => {
             console.log(error);
         });
@@ -38,6 +41,7 @@ function stockController($http) {
     stockCrtl.putStock = (stock) => {
         $http.put('/stock', stock).then((res) => {
             console.log(res);
+            getStock();
         }).catch((error) => {
             console.log(error);
         });
