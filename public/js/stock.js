@@ -14,6 +14,7 @@ function stockController($http) {
             console.log(res.data);
             stockCtrl.stockList = res.data;
 			pieChart();
+			drawChart();
         }).catch((error) => {
             console.log(error);
         });
@@ -59,7 +60,7 @@ function stockController($http) {
 
     function pieChart(){
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart());
+      google.charts.setOnLoadCallback(drawChart);
       let mostPopular = [];
       mostPopular.push(stockCtrl.stockList[0]);
       mostPopular.push(stockCtrl.stockList[1]);
