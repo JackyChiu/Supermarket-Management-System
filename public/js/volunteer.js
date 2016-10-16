@@ -27,6 +27,8 @@ function volunteerController($http) {
         volunteerCtrl.volunteer.saturday = volunteerCtrl.volunteer.saturday || {};
         $http.post('/volunteer', volunteerCtrl.volunteer).then((res) => {
             console.log(res);
+            getVolunteer();
+            volunteerCtrl.volunteer = {};
         }).catch((error) => {
             console.log(error);
         });
@@ -35,6 +37,7 @@ function volunteerController($http) {
     volunteerCtrl.deleteVolunteer = (volunteer) => {
         $http.delete('/volunteer/' + volunteer._id).then((res) => {
             console.log(res);
+            getVolunteer();
         }).catch((error) => {
             console.log(error);
         });
@@ -43,6 +46,7 @@ function volunteerController($http) {
     volunteerCtrl.putVolunteer = (volunteer) => {
         $http.put('/volunteer', volunteer).then((res) => {
             console.log(res);
+            getVolunteer();
         }).catch((error) => {
             console.log(error);
         });
