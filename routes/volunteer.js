@@ -27,28 +27,28 @@ router.post('/', (req, res) => {
     console.log(req.body);
 
     const person = new Volunteer({
-    'name': String,
+    'name': req.body.name,
     'monday': {
-		start: String,
-		end: String},
+		start: req.body.monday.start,
+		end: req.body.monday.end},
 	'tuesday': {
-		start: String,
-		end: String},
+		start: req.body.tuesday.start,
+		end: req.body.tuesday.end},
 	'wednesday': {
-		start: String,
-		end: String},
+		start: req.body.wednesday.start,
+		end: req.body.wednesday.end},
 	'thursday': {
-		start: String,
-		end: String},
+		start: req.body.thursday.start,
+		end: req.body.thursday.end},
 	'friday': {
-		start: String,
-		end: String},
+		start: req.body.friday.start,
+		end: req.body.friday.end},
 	'saturday': {
-		start: String,
-		end: String},
+		start: req.body.saturday.start,
+		end: req.body.saturday.end},
 	'sunday': {
-		start: String,
-		end: String}
+		start: req.body.sunday.start,
+		end: req.body.sunday.end}
 	});
 
     person.save().then((result) => {
@@ -64,28 +64,29 @@ router.put('/', (req, res) => {
     console.log(req.body); 
     Volunteer.findById(req._id).then((volunteer) => {
 		// TODO
-   		 'name': String,
-   		 'monday': {
-			start: String,
-			end: String},
+			
+   		 'name'= req.body.name,
+    	'monday': {
+			start= req.body.monday.start,
+			end= req.body.monday.end},
 		'tuesday': {
-			start: String,
-			end: String},
+			start= req.body.tuesday.start,
+			end= req.body.tuesday.end},
 		'wednesday': {
-			start: String,
-			end: String},
+			start= req.body.wednesday.start,
+			end= req.body.wednesday.end},
 		'thursday': {
-			start: String,
-			end: String},
+			start= req.body.thursday.start,
+			end= req.body.thursday.end},
 		'friday': {
-			start: String,
-			end: String},
+			start= req.body.friday.start,
+			end= req.body.friday.end},
 		'saturday': {
-			start: String,
-			end: String},
+			start= req.body.saturday.start,
+			end= req.body.saturday.end},
 		'sunday': {
-			start: String,
-			end: String}
+			start= req.body.sunday.start,
+			end= req.body.sunday.end}
 		return volunteer.save();
     }).then((result) => {
         console.log(result);
