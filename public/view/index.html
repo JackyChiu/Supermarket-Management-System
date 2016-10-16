@@ -5,37 +5,79 @@
   </head>
   <body>
   <div class="container">
-    <div class="row">
-          <h2 class="section-heading">Stock List</h2>
-			<table class="stocktable">
-				<thead>
-					<tr>
-						<th>Product</th>
-						<th>ExpireDate</th>
-						<th>Quantity</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><input class="form-control" ng-model="stock.product"></td>
-						<td><input class="form-control" ng-model="stock.expireDate"></td>
-						<td><input class="form-control" ng-model="stock.quantity"></td>
-						<td><button class="btn btn-primary" ng-click="postStock()">Add Stock</button></td>
-					</tr>
-					<tr ng-repeat="stock in stocklist">
-						<td>{{stock.product}}</td>
-						<td>{{stock.expireDate}}</td>
-						<td>{{stock.quantity}}</td>
-						<td><button class="btn btn-danger" ng-click="deleteStock(stock)">Remove</button></td>
-						<td><button class="btn btn-warning" ng-click="putStock(stock)">Edit</button></td>
-					</tr>
-				</tbody>
-			</table>
+      <div class="row">
+          <div class="col-lg-offset-1 col-lg-10">
+              <h2 class="section-heading">Stock List</h2>
+    			<table class="stocktable">
+    				<thead>
+    					<tr>
+    						<th>Product</th>
+    						<th>ExpireDate</th>
+    						<th>Quantity</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<tr>
+    						<td><input class="form-control" ng-model="stock.product"></td>
+    						<td><input class="form-control" ng-model="stock.expireDate"></td>
+    						<td><input class="form-control" ng-model="stock.quantity"></td>
+    						<td><button class="btn btn-primary" ng-click="postStock()">Add Stock</button></td>
+    					</tr>
+    					<tr ng-repeat="stock in stocklist">
+    						<td>{{stock.product}}</td>
+    						<td>{{stock.expireDate}}</td>
+    						<td>{{stock.quantity}}</td>
+    						<td><button class="btn btn-danger" ng-click="deleteStock(stock)">Remove</button></td>
+    						<td><button class="btn btn-warning" ng-click="putStock(stock)">Edit</button></td>
+    					</tr>
+    				</tbody>
+    			</table>
+            </div>
+        </div>
     </div>
 
-        
-	
-</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="section-heading">Volunteers</h2>
+            <table class="volunteertable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="form-control" ng-model="volunteer.name"></td>
+                        <td><input class="form-control" ng-model="volunteer.monday"></td>
+                        <td><input class="form-control" ng-model="volunteer.tuesday"></td>
+                        <td><input class="form-control" ng-model="volunteer.wednesday"></td>
+                        <td><input class="form-control" ng-model="volunteer.thursday"></td>
+                        <td><input class="form-control" ng-model="volunteer.friday"></td>
+                        <td><input class="form-control" ng-model="volunteer.saturday"></td>
+                        <td><input class="form-control" ng-model="volunteer.sunday"></td>
+                        <td><button class="btn btn-primary" ng-click="postStock()">Add Volunteer</button></td>
+                    </tr>
+                    <tr ng-repeat="stock in stocklist">
+                        <td>{{volunteer.name}}</td>
+                        <td>{{volunteer.monday.start}} - {{volunteer.monday.end}}</td>
+                        <td>{{volunteer.tuesday.start}} - {{volunteer.tuesday.end}}</td>
+                        <td>{{volunteer.wednesday.start}} - {{volunteer.wednesday.end}}</td>
+                        <td>{{volunteer.thursday.start}} - {{volunteer.thursday.end}}</td>
+                        <td>{{volunteer.friday.start}} - {{volunteer.friday.end}}</td>
+                        <td>{{volunteer.saturday.start}} - {{volunteer.saturday.end}}</td>
+                        <td>{{volunteer.sunday.start}} - {{volunteer.sunday.end}}</td>
+                        <td><button class="btn btn-danger" ng-click="deleteStock(stock)">Remove</button></td>
+                        <td><button class="btn btn-warning" ng-click="putStock(stock)">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
