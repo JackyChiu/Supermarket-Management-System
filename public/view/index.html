@@ -20,17 +20,18 @@
 						<td><input class="form-control" ng-model="stock.product"></td>
 						<td><input class="form-control" ng-model="stock.expireDate"></td>
 						<td><input class="form-control" ng-model="stock.quantity"></td>
-						<td><button class="btn btn-primary" ng-click="addStock()">Add Stock</button></td>
+						<td><button class="btn btn-primary" ng-click="postStock()">Add Stock</button></td>
 					</tr>
 					<tr ng-repeat="stock in stocklist">
 						<td>{{stock.product}}</td>
 						<td>{{stock.expireDate}}</td>
 						<td>{{stock.quantity}}</td>
-						<td><button class="btn btn-danger" ng-click="remove(stock._id)">Remove</button></td>
-						<td><button class="btn btn-warning" ng-click="edit(stock._id)">Edit</button></td>
+						<td><button class="btn btn-danger" ng-click="deleteStock(stock)">Remove</button></td>
+						<td><button class="btn btn-warning" ng-click="putStock(stock)">Edit</button></td>
 					</tr>
 				</tbody>
-        </div>
+			</table>
+    </div>
 
         
 	
