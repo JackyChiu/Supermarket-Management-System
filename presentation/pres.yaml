@@ -1,0 +1,14 @@
+%YAML 1.2
+---
+
+Features:
+	-'Fuck all'
+
+Tech:
+	-'Git'
+	-'MEAN': {'MongoDB', 'Express.js', 'Angular.js', 'Node.js'}
+	- 'VI'
+	- 'Heroku'
+	- 'We wrote every library ourselves in 8086 assembly'
+	
+
