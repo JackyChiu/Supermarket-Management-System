@@ -13,6 +13,7 @@ function stockController($http) {
         $http.get('/stock').then((res) => {
             console.log(res.data);
             stockCtrl.stockList = res.data;
+			pieChart();
         }).catch((error) => {
             console.log(error);
         });
@@ -89,7 +90,7 @@ function stockController($http) {
           title: 'Popular Item'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
 
         chart.draw(data, options);
       }
