@@ -18,12 +18,11 @@ function stockController($http) {
         });
     }
 
-    pieChart();
-
     stockCtrl.postStock = () => {
         console.log(stockCtrl.stock);
         $http.post('/stock', stockCtrl.stock).then((res) => {
             console.log(res);
+            getStock();
         }).catch((error) =>{
             console.log(error);
         });
@@ -32,6 +31,7 @@ function stockController($http) {
     stockCtrl.deleteStock = (stock) => {
         $http.delete('/stock/' + stock._id).then((res) => {
             console.log(res);
+            getStock();
         }).catch((error) => {
             console.log(error);
         });
@@ -44,7 +44,7 @@ function stockController($http) {
             console.log(error);
         });
     }
-
+/*
     function pieChart(){
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -83,4 +83,5 @@ function stockController($http) {
         chart.draw(data, options);
       }
       }
+    */
 }
