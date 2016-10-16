@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
     });
 
     product.save().then((result) => {
-        console.log(`Saved ${JSON.stringify(result, null, 4)});
+        console.log(`Saved ${JSON.stringify(result, null, 4)}`);
         res.send(result);
     }).catch((err) => {
         console.log(err);
