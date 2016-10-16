@@ -19,10 +19,15 @@ function volunteerController($http) {
     };
 
     volunteerCtrl.postVolunteer = () => {
-        console.log(volunteerCtrl.volunteer);
+        volunteerCtrl.volunteer.monday = volunteerCtrl.volunteer.monday || {};
+        volunteerCtrl.volunteer.tuesday = volunteerCtrl.volunteer.tuesday || {};
+        volunteerCtrl.volunteer.wednesday = volunteerCtrl.volunteer.wednesday || {};
+        volunteerCtrl.volunteer.thursday = volunteerCtrl.volunteer.thursday || {};
+        volunteerCtrl.volunteer.friday = volunteerCtrl.volunteer.friday || {};
+        volunteerCtrl.volunteer.saturday = volunteerCtrl.volunteer.saturday || {};
         $http.post('/volunteer', volunteerCtrl.volunteer).then((res) => {
             console.log(res);
-        }).catch((error) =>{
+        }).catch((error) => {
             console.log(error);
         });
     };
