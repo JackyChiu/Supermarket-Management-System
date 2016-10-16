@@ -92,12 +92,12 @@ function stockController($http) {
             title: 'Popular Item'
 			titleTextStyle: {	color: 'black',
 								fontName: 'Arial',
-								fontSize: '18',
+								fontSize: 18,
 								bold: true,
 								italic: false}
-			legend.testStyle: {	color: "black"
+			legend.testStyle: {	color: "black",
 								fontName: "Arial",
-								fontSize: "14",
+								fontSize: 14,
 								bold: false,
 								italic: false }
         };
