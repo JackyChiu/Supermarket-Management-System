@@ -1,14 +1,43 @@
 %YAML 1.2
 ---
 
-Features:
-	-'Fuck all'
+Title:
+	- null
 
-Tech:
+Workflow:
 	-'Git'
 	-'MEAN': {'MongoDB', 'Express.js', 'Angular.js', 'Node.js'}
 	- 'VI'
 	- 'Heroku'
 	- 'We wrote every library ourselves in 8086 assembly'
-	
 
+Delegations:
+	-Kirin: 'Volunteer Schema, /volunteer routing'
+	-Jacky: 'Teaching MEAN'
+	-Vikram: 
+	-Hao: 	
+
+Concept:
+	-(Image of stack)
+
+User_Interface:
+	-Angular.js:
+
+Server:
+	-Node.js
+
+Routing:
+	-Express.js
+
+Database:
+	-MongoDB
+
+Libraries-Services:
+	-Git
+	-MongoDB
+	-Express
+	-Angular
+	-Node
+	
+Improvements:
+	-'More time pls'
