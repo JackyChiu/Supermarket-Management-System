@@ -2,10 +2,49 @@
 <html ng-app="Supermarket-Management-System">
   <head>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+	  getStock();
+	  let mostPopular = [];
+	  for ( let n = 0, n < 5; n++ ) {
+			mostPopular.push(stockList[i])
+		}
+	  for ( let i = 5; i < stockList.length; i++) {
+			for(let n = 0; n<mostPopular.length; n++ ) {
+			if (stockList[i].orders > mostPopular[n].orders){
+				mostPopular[n] = stockList[i];
+				n = mostPopular.length;
+			}
+			}
+		}	
+		}
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Item', 'Sold number'],
+          [mostPopular[0].product,     mostPopular[0].orders],
+          [mostPopular[1].product,     mostPopular[1].orders],
+          [mostPopular[2].product,     mostPopular[2].orders],
+          [mostPopular[3].product,     mostPopular[3].orders],
+          [mostPopular[4].product,     mostPopular[4].orders]
+        ]);
+
+        var options = {
+          title: 'Popular Item'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+	  </script>
   </head>
   <body>
   <div class="container">
     <div class="row">
+        <div class="col-lg-12">
           <h2 class="section-heading">Stock List</h2>
 			<table class="stocktable" ng-controller="StockController as stockCtrl">
 				<thead>
@@ -31,11 +70,59 @@
 					</tr>
 				</tbody>
 			</table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="section-heading">Volunteers</h2>
+            <table class="volunteertable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="form-control" ng-model="volunteer.name"></td>
+                        <td><input class="form-control" ng-model="volunteer.monday"></td>
+                        <td><input class="form-control" ng-model="volunteer.tuesday"></td>
+                        <td><input class="form-control" ng-model="volunteer.wednesday"></td>
+                        <td><input class="form-control" ng-model="volunteer.thursday"></td>
+                        <td><input class="form-control" ng-model="volunteer.friday"></td>
+                        <td><input class="form-control" ng-model="volunteer.saturday"></td>
+                        <td><input class="form-control" ng-model="volunteer.sunday"></td>
+                        <td><button class="btn btn-primary" ng-click="postVolunteer()">Add Volunteer</button></td>
+                    </tr>
+                    <tr ng-repeat="volunteer in volunteerList">
+                        <td>{{volunteer.name}}</td>
+                        <td>{{volunteer.monday.start}} - {{volunteer.monday.end}}</td>
+                        <td>{{volunteer.tuesday.start}} - {{volunteer.tuesday.end}}</td>
+                        <td>{{volunteer.wednesday.start}} - {{volunteer.wednesday.end}}</td>
+                        <td>{{volunteer.thursday.start}} - {{volunteer.thursday.end}}</td>
+                        <td>{{volunteer.friday.start}} - {{volunteer.friday.end}}</td>
+                        <td>{{volunteer.saturday.start}} - {{volunteer.saturday.end}}</td>
+                        <td>{{volunteer.sunday.start}} - {{volunteer.sunday.end}}</td>
+                        <td><button class="btn btn-danger" ng-click="deleteVolunteer(volunteer)">Remove</button></td>
+                        <td><button class="btn btn-warning" ng-click="putVolunteer(volunteer)">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+<div id="piechart" style="width: 900px; height: 500px;"></div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="js/Supermarket-Management-System.js"></script>
   <script src="js/stock.js"></script>
 </html>
