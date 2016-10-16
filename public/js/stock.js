@@ -13,8 +13,7 @@ function stockController($http) {
         $http.get('/stock').then((res) => {
             console.log(res.data);
             stockCtrl.stockList = res.data;
-			pieChart();
-			drawChart();
+            pieChart();
         }).catch((error) => {
             console.log(error);
         });
