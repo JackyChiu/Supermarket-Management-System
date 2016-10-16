@@ -94,6 +94,7 @@ function stockController($http) {
 				color: 'black',
 				fontName: 'Arial',
 				fontSize: 30,
+				bold: false
 			},
 			legend: {textStyle: {fontSize: 20}}
         };
