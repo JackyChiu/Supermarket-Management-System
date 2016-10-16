@@ -8,14 +8,14 @@
           google.charts.setOnLoadCallback(drawChart);
           getStock();
           let mostPopular = [];
-          for ( let n = 0, n < 5; n++ ) {
-        		mostPopular.push(stockList[i]);
+          for ( let q = 0, q < 5; q++ ) {
+        		mostPopular.push(stockList[q]);
             }
           for ( let i = 5; i < stockList.length; i++) {
         		for(let j = 0; j<mostPopular.length; j++ ) {
         		if (stockList[i].orders > mostPopular[j].orders){
         			mostPopular[j] = stockList[i];
-        			n = mostPopular.length;
+        			j = mostPopular.length;
         		}
         		}
         	}
