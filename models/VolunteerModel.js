@@ -20,9 +20,6 @@ const volunteerSchema = new Schema({
 		end: String},
 	'saturday': {
 		start: String,
-		end: String},
-	'sunday': {
-		start: String,
 		end: String}
 }, { versionKey: 'version' });
 

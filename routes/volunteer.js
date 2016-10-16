@@ -29,32 +29,28 @@ router.post('/', (req, res) => {
     const person = new Volunteer({
         'name': req.body.name,
         'monday': {
-            'start': req.body.monday.start,
-            'end': req.body.monday.end
+            'start': req.body.monday.start || null,
+            'end': req.body.monday.end || null
         },
         'tuesday': {
-            'start': req.body.tuesday.start,
-            'end': req.body.tuesday.end
+            'start': req.body.tuesday.start || null,
+            'end': req.body.tuesday.end || null
         },
         'wednesday': {
-            'start': req.body.wednesday.start,
-            'end': req.body.wednesday.end
+            'start': req.body.wednesday.start || null,
+            'end': req.body.wednesday.end || null
         },
         'thursday': {
-            'start': req.body.thursday.start,
-            'end': req.body.thursday.end
+            'start': req.body.thursday.start || null,
+            'end': req.body.thursday.end || null
         },
         'friday': {
-            'start': req.body.friday.start,
-            'end': req.body.friday.end
+            'start': req.body.friday.start || null,
+            'end': req.body.friday.end || null
         },
         'saturday': {
-            'start': req.body.saturday.start,
-            'end': req.body.saturday.end
-        },
-        'sunday': {
-            'start': req.body.sunday.start,
-            'end': req.body.sunday.end
+            'start': req.body.saturday.start || null,
+            'end': req.body.saturday.end || null
         }
 	});
 
