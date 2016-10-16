@@ -42,15 +42,14 @@ router.post('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-    console.log(req.body); 
-    Stock.findById(req._id).then((stock) => {
-        stock.orders += (stock.quantity - req.body.quantity);
-        stock.product = req.body.product;
-        stock.expiryDate = req.body.expiryDate;
+    Stock.findById(req.body._id).then((stock) => {
+        if (stock.quantity >= req.body.quantity) {
+            stock.orders += (stock.quantity - req.body.quantity);
+        }
         stock.quantity = req.body.quantity;
         return stock.save();
     }).then((result) => {
-        console.log(result);
+        console.log(`Edited: ${result}`);
         res.send(result);  
     }).catch((err) => {
         console.log(err);

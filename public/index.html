@@ -31,7 +31,8 @@
     					<td>{{stock.expiryDate}}</td>
     					<td>{{stock.quantity}}</td>
     					<td><button class="btn btn-danger" ng-click="stockCtrl.deleteStock(stock)">Remove</button></td>
-    					<td><button class="btn btn-warning" ng-click="stockCtrl.putStock(stock)">Edit</button></td>
+    					<td><button class="btn btn-warning" ng-click="stockCtrl.addStock(stock)">+</button></td>
+    					<td><button class="btn btn-warning" ng-click="stockCtrl.minusStock(stock)">-</button></td>
                     </tr>
 				</tbody>
 			</table>
