@@ -22,11 +22,12 @@ function stockController($http) {
         console.log(stockCtrl.stock);
         $http.post('/stock', stockCtrl.stock).then((res) => {
             console.log(res);
+            stockCtrl.stock = {};
             getStock();
         }).catch((error) =>{
             console.log(error);
         });
-    }
+    };
 
     stockCtrl.deleteStock = (stock) => {
         $http.delete('/stock/' + stock._id).then((res) => {
@@ -35,15 +36,25 @@ function stockController($http) {
         }).catch((error) => {
             console.log(error);
         });
-    }
+    };
 
-    stockCtrl.putStock = (stock) => {
+    stockCtrl.addStock = (stock) => {
+        stock.quantity += 1;
         $http.put('/stock', stock).then((res) => {
             console.log(res);
         }).catch((error) => {
             console.log(error);
         });
-    }
+    };
+
+    stockCtrl.minusStock = (stock) => {
+        stock.quantity -= 1;
+        $http.put('/stock', stock).then((res) => {
+            console.log(res);
+        }).catch((error) => {
+            console.log(error);
+        });
+    };
 /*
     function pieChart(){
       google.charts.load('current', {'packages':['corechart']});
