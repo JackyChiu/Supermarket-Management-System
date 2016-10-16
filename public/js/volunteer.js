@@ -10,6 +10,7 @@ function volunteerController($http) {
     getVolunteer();
 
     function getVolunteer(){
+        console.log('hit');
         $http.get('/volunteer').then((res) => {
             console.log(res.data);
             volunteerCrtl.volunteerList = res.data;

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const indexRoutes = require('./routes/index.js');
 const stockRoute = require('./routes/stock.js');
-//const volunteerRoute = require('./routes/volunteer.js');
+const volunteerRoute = require('./routes/volunteer.js');
 
 const app = express();
 
@@ -17,6 +17,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Routes
 app.use('/stock', stockRoute);
+app.use('/volunteer', volunteerRoute);
 
 app.listen(process.env.PORT, () => {
     console.log(`Running on port ${process.env.PORT}`);

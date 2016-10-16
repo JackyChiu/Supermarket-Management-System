@@ -26,6 +26,6 @@ const volunteerSchema = new Schema({
 		end: String}
 }, { versionKey: 'version' });
 
-const Stock = mongoose.model('Volunteer', volunteerSchema, 'Volunteer');
+const Volunteer = mongoose.model('Volunteer', volunteerSchema, 'Volunteer');
 
 module.exports = Volunteer;

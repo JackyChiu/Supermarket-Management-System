@@ -59,13 +59,13 @@ router.post('/', (req, res) => {
         res.status(500);
     });
 });
-
+/*
 router.put('/', (req, res) => {
     console.log(req.body);
     Volunteer.findById(req._id).then((volunteer) => {
 		// TODO
 		 volunteer.name = req.body.name;
-   		volunteer. monday = {
+   		volunteer.monday = {
    			volunteer.monday.start = req.body.monday.start;
 			  volunteer.monday.end = req.body.monday.end
       };
@@ -96,7 +96,7 @@ router.put('/', (req, res) => {
         res.status(500).end();
     });
 });
-
+*/
 router.delete('/:id', (req, res) => {
     Volunteer.remove({
         'id': req.params._id
