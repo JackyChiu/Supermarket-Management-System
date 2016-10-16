@@ -1,28 +1,40 @@
-angular.module('todoApp', [])
-  .controller('TodoListController', function() {
-    var todoList = this;
-    todoList.todos = [
-      {text:'learn angular', done:true},
-      {text:'build an angular app', done:false}];
+angular.module('stock').controller(stockController);
 
-    todoList.addTodo = function() {
-      todoList.todos.push({text:todoList.todoText, done:false});
-      todoList.todoText = '';
-    };
+function stockController($http) {
+    const stockCrtl = this;
+    let stockList = [];
+    let stockInput = {};
 
-    todoList.remaining = function() {
-      var count = 0;
-      angular.forEach(todoList.todos, function(todo) {
-        count += todo.done ? 0 : 1;
-      });
-      return count;
-    };
+    function getStock(){
+        $http.get('/stock').then((res) => {
+            console.log(res);
+            stockList = res;
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
 
-    todoList.archive = function() {
-      var oldTodos = todoList.todos;
-      todoList.todos = [];
-      angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) todoList.todos.push(todo);
-      });
-    };
-  });
+    function postStock() {
+        $http.post('/stock', stockInput).then((res) => {
+            console.log(res);
+        }).catch((error) =>{
+            console.log(error);
+        });
+    }
+
+    function deleteStock(stock){
+        $http.delete('/stock/stock._id').then((res) => {
+            console.log(res);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    function putStock(stock){
+        $http.put('/stock', stock).then((res) => {
+            console.log(res);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+}
