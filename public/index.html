@@ -70,7 +70,6 @@
                             <th>Thursday</th>
                             <th>Friday</th>
                             <th>Saturday</th>
-                            <th>Sunday</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,9 +95,6 @@
                             <td>
                                 <input class="form-control" type="time" ng-model="volunteerCtrl.volunteer.saturday.start" placeholder="HH:mm" min="08:00" max="17:00" required />
                             </td>
-                            <td>
-                                <input class="form-control" type="time" ng-model="volunteerCtrl.volunteer.sunday.start" placeholder="HH:mm" min="08:00" max="17:00" required />
-                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -121,9 +117,6 @@
                             </td>
                             <td>
                                 <input class="form-control" type="time" ng-model="volunteerCtrl.volunteer.saturday.end" placeholder="HH:mm" min="08:00" max="17:00" required />
-                            </td>
-                            <td>
-                                <input class="form-control" type="time" ng-model="volunteerCtrl.volunteer.sunday.end" placeholder="HH:mm" min="08:00" max="17:00" required />
                             </td>
                         </tr>
                         <tr ng-repeat="volunteer in volunteerCtrl.volunteerList">
