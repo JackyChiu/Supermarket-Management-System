@@ -27,7 +27,28 @@ router.post('/', (req, res) => {
     console.log(req.body);
 
     const person = new Volunteer({
-    	// TODO:
+    'name': String,
+    'monday': {
+		start: String,
+		end: String},
+	'tuesday': {
+		start: String,
+		end: String},
+	'wednesday': {
+		start: String,
+		end: String},
+	'thursday': {
+		start: String,
+		end: String},
+	'friday': {
+		start: String,
+		end: String},
+	'saturday': {
+		start: String,
+		end: String},
+	'sunday': {
+		start: String,
+		end: String}
 	});
 
     person.save().then((result) => {
@@ -42,7 +63,29 @@ router.post('/', (req, res) => {
 router.put('/', (req, res) => {
     console.log(req.body); 
     Volunteer.findById(req._id).then((volunteer) => {
-		// TODO        
+		// TODO
+   		 'name': String,
+   		 'monday': {
+			start: String,
+			end: String},
+		'tuesday': {
+			start: String,
+			end: String},
+		'wednesday': {
+			start: String,
+			end: String},
+		'thursday': {
+			start: String,
+			end: String},
+		'friday': {
+			start: String,
+			end: String},
+		'saturday': {
+			start: String,
+			end: String},
+		'sunday': {
+			start: String,
+			end: String}
 		return volunteer.save();
     }).then((result) => {
         console.log(result);
