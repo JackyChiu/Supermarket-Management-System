@@ -23,36 +23,36 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log('=======Object Recieved======'); 
+    console.log('=======Object Recieved======');
     console.log(req.body);
 
     const person = new Volunteer({
-    'name': String,
+    'name': req.body.name,
     'monday': {
-		start: String,
-		end: String},
+		start: req.body.monday.start,
+		end: req.body.monday.end},
 	'tuesday': {
-		start: String,
-		end: String},
+		start: req.body.tuesday.start,
+		end: req.body.tuesday.end},
 	'wednesday': {
-		start: String,
-		end: String},
+		start: req.body.wednesday.start,
+		end: req.body.wednesday.end},
 	'thursday': {
-		start: String,
-		end: String},
+		start: req.body.thursday.start,
+		end: req.body.thursday.end},
 	'friday': {
-		start: String,
-		end: String},
+		start: req.body.friday.start,
+		end: req.body.friday.end},
 	'saturday': {
-		start: String,
-		end: String},
+		start: req.body.saturday.start,
+		end: req.body.saturday.end},
 	'sunday': {
-		start: String,
-		end: String}
+		start: req.body.sunday.start,
+		end: req.body.sunday.end}
 	});
 
     person.save().then((result) => {
-        console.log(`Saved ${JSON.stringify(result, null, 4)});
+        console.log('Saved ${JSON.stringify(result, null, 4)}');
         res.send(result);
     }).catch((err) => {
         console.log(err);
@@ -61,35 +61,37 @@ router.post('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-    console.log(req.body); 
+    console.log(req.body);
     Volunteer.findById(req._id).then((volunteer) => {
 		// TODO
-   		 'name': String,
-   		 'monday': {
-			start: String,
-			end: String},
-		'tuesday': {
-			start: String,
-			end: String},
-		'wednesday': {
-			start: String,
-			end: String},
-		'thursday': {
-			start: String,
-			end: String},
-		'friday': {
-			start: String,
-			end: String},
-		'saturday': {
-			start: String,
-			end: String},
-		'sunday': {
-			start: String,
-			end: String}
+   		volunteer.
+		 volunteer.name = req.body.name;
+   		volunteer. monday = {
+   			volunteer.monday.start = req.body.monday.start;
+			  volunteer.monday.end = req.body.monday.end
+      };
+		 volunteer.tuesday = {
+			volunteer.start = req.body.tuesday.start;
+			volunteer.end = req.body.tuesday.end};
+		 volunteer.wednesday = {
+			volunteer.start= req.body.wednesday.start;
+			volunteer.end= req.body.wednesday.end};
+		 volunteer.thursday = {
+			volunteer.start= req.body.thursday.start;
+			volunteer.end= req.body.thursday.end};
+		 volunteer.friday = {
+			volunteer.start= req.body.friday.start;
+			volunteer.end= req.body.friday.end};
+		 volunteer.saturday = {
+			volunteer.start= req.body.saturday.start;
+			volunteer.end= req.body.saturday.end};
+		 volunteer.sunday = {
+			volunteer.start= req.body.sunday.start;
+			volunteer.end= req.body.sunday.end}
 		return volunteer.save();
     }).then((result) => {
         console.log(result);
-        res.send(result);  
+        res.send(result);
     }).catch((err) => {
         console.log(err);
         res.status(500).end();
@@ -105,7 +107,7 @@ router.delete('/:id', (req, res) => {
     }).catch((err) => {
         console.log(err);
         res.status(500).end();
-    }); 
+    });
 });
 
 module.exports = router;
