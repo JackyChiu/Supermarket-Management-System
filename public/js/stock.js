@@ -90,9 +90,16 @@ function stockController($http) {
 
         var options = {
             title: 'Popular Item'
-			titleTextStyle: {	fontSize: 18,
-								bold: true	}
-			legend.testStyle: {fontSize: 14}
+			titleTextStyle: {	color: 'black',
+								fontName: 'Arial',
+								fontSize: '18',
+								bold: true,
+								italic: false}
+			legend.testStyle: {	color: "black"
+								fontName: "Arial",
+								fontSize: "14",
+								bold: false,
+								italic: false }
         };
         var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
         chart.draw(data, options);
