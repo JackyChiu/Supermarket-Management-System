@@ -1,7 +1,7 @@
 angular.module('stock').controller(stockController);
 
 function stockController($http) {
-    const stockCrtl = this;
+    const stockCtrl = this;
     let stockList = [];
     let stockInput = {};
 
