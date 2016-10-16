@@ -42,4 +42,6 @@ function stockController($http) {
             console.log(error);
         });
     }
+	
+	
 }
