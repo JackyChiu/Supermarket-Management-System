@@ -89,17 +89,20 @@ function stockController($http) {
         ]);
 
         var options = {
-            title: 'Popular Item'
-			titleTextStyle: {	color: 'black',
-								fontName: 'Arial',
-								fontSize: 18,
-								bold: true,
-								italic: false}
-			legend.testStyle: {	color: "black",
+            title: 'Popular Item',
+			titleTextStyle: {	
+				color: 'black',
+				fontName: 'Arial',
+				fontSize: 18,
+				bold: true,
+				italic: false
+			}
+			/*legend.textStyle: {	
+								color: "black",
 								fontName: "Arial",
 								fontSize: 14,
 								bold: false,
-								italic: false }
+								italic: false }*/
         };
         var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
         chart.draw(data, options);
