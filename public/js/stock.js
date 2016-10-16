@@ -1,36 +1,41 @@
-angular.module('stock').controller(stockController);
+'use strict';
+
+angular.module('Supermarket-Management-System').controller('StockController', stockController);
 
 function stockController($http) {
-    const stockCtrl = this;
-    let stockList = [];
-    let stockInput = {};
+    const stockCrtl = this;
+    stockCrtl.stock = {};
+    stockCrtl.stockList = [];
+    
+    getStock();
 
     function getStock(){
         $http.get('/stock').then((res) => {
-            console.log(res);
-            stockList = res;
+            console.log(res.data);
+            stockCrtl.stockList = res.data;
         }).catch((error) => {
             console.log(error);
         });
     }
 
-    function postStock() {
-        $http.post('/stock', stockInput).then((res) => {
+    stockCrtl.postStock = () => {
+        console.log(stockCrtl.stock);
+        $http.post('/stock', stockCrtl.stock).then((res) => {
             console.log(res);
         }).catch((error) =>{
             console.log(error);
         });
     }
 
-    function deleteStock(stock){
-        $http.delete('/stock/stock._id').then((res) => {
+    stockCrtl.deleteStock = (stock) => {
+        $http.delete('/stock/' + stock._id).then((res) => {
             console.log(res);
         }).catch((error) => {
             console.log(error);
         });
     }
 
-    function putStock(stock){
+    stockCrtl.putStock = (stock) => {
         $http.put('/stock', stock).then((res) => {
             console.log(res);
         }).catch((error) => {
