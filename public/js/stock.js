@@ -92,9 +92,7 @@ function stockController($http) {
             var options = {
                 title: 'Popular Item'
             };
-
             var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
-
             chart.draw(data, options);
         }
     }
