@@ -32,10 +32,54 @@
 				</tbody>
 			</table>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="section-heading">Volunteers</h2>
+            <table class="volunteertable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input class="form-control" ng-model="volunteer.name"></td>
+                        <td><input class="form-control" ng-model="volunteer.monday"></td>
+                        <td><input class="form-control" ng-model="volunteer.tuesday"></td>
+                        <td><input class="form-control" ng-model="volunteer.wednesday"></td>
+                        <td><input class="form-control" ng-model="volunteer.thursday"></td>
+                        <td><input class="form-control" ng-model="volunteer.friday"></td>
+                        <td><input class="form-control" ng-model="volunteer.saturday"></td>
+                        <td><input class="form-control" ng-model="volunteer.sunday"></td>
+                        <td><button class="btn btn-primary" ng-click="postVolunteer()">Add Volunteer</button></td>
+                    </tr>
+                    <tr ng-repeat="volunteer in volunteerList">
+                        <td>{{volunteer.name}}</td>
+                        <td>{{volunteer.monday.start}} - {{volunteer.monday.end}}</td>
+                        <td>{{volunteer.tuesday.start}} - {{volunteer.tuesday.end}}</td>
+                        <td>{{volunteer.wednesday.start}} - {{volunteer.wednesday.end}}</td>
+                        <td>{{volunteer.thursday.start}} - {{volunteer.thursday.end}}</td>
+                        <td>{{volunteer.friday.start}} - {{volunteer.friday.end}}</td>
+                        <td>{{volunteer.saturday.start}} - {{volunteer.saturday.end}}</td>
+                        <td>{{volunteer.sunday.start}} - {{volunteer.sunday.end}}</td>
+                        <td><button class="btn btn-danger" ng-click="deleteVolunteer(volunteer)">Remove</button></td>
+                        <td><button class="btn btn-warning" ng-click="putVolunteer(volunteer)">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="js/Supermarket-Management-System.js"></script>
   <script src="js/stock.js"></script>
 </html>
