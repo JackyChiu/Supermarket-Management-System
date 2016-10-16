@@ -61,7 +61,7 @@ router.put('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     Stock.remove({
-        'id': req.params._id
+        '_id': req.params._id
     }).then((result) => {
         console.log(`Deleted ${result}`);
         res.send(result);
