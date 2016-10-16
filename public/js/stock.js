@@ -60,7 +60,6 @@ function stockController($http) {
     function pieChart(){
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-      stockCtrl.getStock();
       let mostPopular = [];
       mostPopular.push(stockList[0]);
       mostPopular.push(stockList[1]);
@@ -79,11 +78,13 @@ function stockController($http) {
 
         var data = google.visualization.arrayToDataTable([
           ['Item', 'Sold number'],
-          [mostPopular[0].product,     mostPopular[0].orders],
+		  ["hey", 1],
+		  ["babe", 2]
+          /*[mostPopular[0].product,     mostPopular[0].orders],
           [mostPopular[1].product,     mostPopular[1].orders],
           [mostPopular[2].product,     mostPopular[2].orders],
           [mostPopular[3].product,     mostPopular[3].orders],
-          [mostPopular[4].product,     mostPopular[4].orders]
+          [mostPopular[4].product,     mostPopular[4].orders]*/
         ]);
 
         var options = {
