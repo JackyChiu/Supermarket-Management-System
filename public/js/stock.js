@@ -22,6 +22,7 @@ function stockController($http) {
         console.log(stockCtrl.stock);
         $http.post('/stock', stockCtrl.stock).then((res) => {
             console.log(res);
+            stockCtrl.stock = {};
             getStock();
         }).catch((error) =>{
             console.log(error);
