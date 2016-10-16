@@ -6,17 +6,39 @@
   <body>
   <div class="container">
     <div class="row">
-        <div class="col-lg-6">
           <h2 class="section-heading">Stock List</h2>
-        </div>
-        <div class="col-lg-6">
-          <h2 class="section-heading">Stats</h2>
-        </div>
+			<table class="stocktable">
+				<thead>
+					<tr>
+						<th>Product</th>
+						<th>ExpireDate</th>
+						<th>Quantity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control" ng-model="stock.product"></td>
+						<td><input class="form-control" ng-model="stock.expireDate"></td>
+						<td><input class="form-control" ng-model="stock.quantity"></td>
+						<td><button class="btn btn-primary" ng-click="postStock()">Add Stock</button></td>
+					</tr>
+					<tr ng-repeat="stock in stocklist">
+						<td>{{stock.product}}</td>
+						<td>{{stock.expireDate}}</td>
+						<td>{{stock.quantity}}</td>
+						<td><button class="btn btn-danger" ng-click="deleteStock(stock)">Remove</button></td>
+						<td><button class="btn btn-warning" ng-click="putStock(stock)">Edit</button></td>
+					</tr>
+				</tbody>
+			</table>
     </div>
+
+        
+	
 </div>
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="stock.js"></script>
+  <script src="../js/stock.js"></script>
 </html>

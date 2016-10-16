@@ -29,7 +29,8 @@ router.post('/', (req, res) => {
     const product = new Stock({
         'product': req.body.product,
         'expiryDate': req.body.expiryDate,
-        'quantity': req.body.quantity
+        'quantity': req.body.quantity,
+        'orders': 0 
     });
 
     product.save().then((result) => {
@@ -44,6 +45,7 @@ router.post('/', (req, res) => {
 router.put('/', (req, res) => {
     console.log(req.body); 
     Stock.findById(req._id).then((stock) => {
+        stock.orders += (stock.quantity - req.body.quantity);
         stock.product = req.body.product;
         stock.expiryDate = req.body.expiryDate;
         stock.quantity = req.body.quantity;

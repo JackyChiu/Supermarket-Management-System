@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const stockSchema = new Schema({
     'product': String,
     'expiryDate': String,
-    'quantity' : Number 
+    'quantity' : Number,
+    'orders': Number
 }, { versionKey: 'version' });
 
 const Stock = mongoose.model('Stock', stockSchema, 'Stock');
