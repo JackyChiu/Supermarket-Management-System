@@ -25,7 +25,7 @@
                                 <input class="form-control" ng-model="stockCtrl.stock.product">
                             </td>
                             <td>
-                                <input class="form-control" ng-model="stockCtrl.stock.expiryDate">
+                                 <input class="form-control" ng-model="stockCtrl.stock.expiryDate"type="date">
                             </td>
                             <td>
                                 <input class="form-control" ng-model="stockCtrl.stock.quantity">
@@ -35,10 +35,10 @@
                             </td>
                         </tr>
                     </tbody>
-                    <tbody ng-repeat="stock in stockCtrl.stockList">
+                    <tbody ng-repeat="stock in stockCtrl.stockList | orderBy:'date' track by stock._id">
                         <tr>
                             <td>{{stock.product}}</td>
-                            <td>{{stock.expiryDate}}</td>
+                            <td>{{stock.expiryDate | date:'mediumDate'}}</td>
                             <td>{{stock.quantity}}</td>
 
                             <td>
