@@ -55,11 +55,11 @@ function stockController($http) {
             console.log(error);
         });
     };
-/*
+
     function pieChart(){
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-      getStock();
+      stockCtrl.getStock();
       let mostPopular = [];
       mostPopular.push(stockList[0]);
       mostPopular.push(stockList[1]);
@@ -94,5 +94,5 @@ function stockController($http) {
         chart.draw(data, options);
       }
       }
-    */
+
 }
