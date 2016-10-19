@@ -4,7 +4,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv').config();
-const indexRoutes = require('./routes/index.js');
 const stockRoute = require('./routes/stock.js');
 const volunteerRoute = require('./routes/volunteer.js');
 
