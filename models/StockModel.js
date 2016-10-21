@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const stockSchema = new Schema({
-    'product': String,
+    'product': { type: String, required: true },
     'expiryDate': String,
     'quantity' : Number,
     'orders': Number

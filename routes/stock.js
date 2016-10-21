@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
         res.send(result);
     }).catch((err) => {
         console.log(err);
-        res.status(500);
+        res.status(500).end();
     });
 });
 
