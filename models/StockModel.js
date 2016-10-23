@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const stockSchema = new Schema({
     'product': { type: String, required: true },
-    'expiryDate': String,
-    'quantity' : Number,
+    'expiryDate': { type: String, required: true },
+    'quantity' : { type: Number, min: 1, required: true },
     'orders': Number
 }, { versionKey: 'version' });
 
